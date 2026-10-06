@@ -19,6 +19,24 @@ Converted from the "Forge Website — Light" design canvas (homepage artboard). 
 6. **Page content.** The page is split by `<!-- ===== … ===== -->` comments. Add one full-width section per block, each with a Code Block, and wrap each pasted block in `<div class="fl"> … </div>`. Set section padding to zero.
 7. **Header and footer.** The design's own nav and footer are in the HTML. Either paste them as the first and last blocks and hide Squarespace's header and footer, or skip them and style Squarespace's header and footer to match.
 
+## Content to-do
+
+- **Rewrite the line caption.** "8 steps · one line · every development batch" under the production-line table (section "One line, mixing to formation") is placeholder copy.
+- **One photo per line step.** The line section shows a single photo today (coating). Get a still for each of the 8 steps:
+
+| Step | What we have now | Status |
+| --- | --- | --- |
+| 01 Mixing | none | needs a shot |
+| 02 Coating | `line-coating.jpg`, library `electrode-web-closeup.jpg` | TV clip crop / library still |
+| 03 Pressing | TV clip crop on the design canvas | needs a clean shot |
+| 04 Notching | none | needs a shot |
+| 05 Stacking | TV clip crop; library `pouch-cell-gripper.jpg` | library still may work |
+| 06 Assembly | library `assembly-line-wide.jpg` | library still may work |
+| 07 Injection | none | needs a shot |
+| 08 Formation | TV clip crop; library `wrapped-cells-fixture.jpg` | library still may work |
+
+Library stills are in the design canvas under `assets/library/`. The canvas's "Photo shoot needed" note has the full shot list.
+
 ## Before going live
 
 All photos are placeholders (see the "Photo shoot needed" note on the design canvas). `line-hero.jpg`, `line-coating-2.jpg` and others are crops from a TV news clip, and `lab-engineer.jpg` shows GUS staff. Replace them before the site is public.
