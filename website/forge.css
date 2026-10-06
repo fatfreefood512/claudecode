@@ -1,0 +1,263 @@
+/* =====================================================================
+   FORGE ENERGY SOLUTIONS — home page styles (Squarespace-ready)
+
+   Every rule is scoped under .forge so it cannot clash with Squarespace's
+   own theme styles. On Squarespace, paste this whole file into
+   Website → Pages → Custom Code → Custom CSS, then wrap each pasted
+   Code Block's HTML in <div class="forge"> … </div>.
+
+   Tokens come from the Forge Energy Design System (colors_and_type.css).
+   Fonts load from Google Fonts (see the <link> tag in index.html).
+   ===================================================================== */
+
+.forge {
+  /* Primary palette */
+  --forge-black:  #121212;
+  --forge-yellow: #E6A700;
+  --forge-white:  #F5F7FA;
+
+  /* Black scale (dark surfaces) */
+  --ink-800: #121212;
+  --ink-700: #1C1C1C;
+  --ink-600: #2A2A2A;
+  --ink-500: #3D3D3D;
+  --ink-300: #7A7A7A;
+  --ink-200: #959595;
+  --ink-100: #C7C7C7;
+
+  /* Heat scale (yellow states) */
+  --heat-300: #FFCC4D;
+  --heat-400: #F4B916;
+  --heat-600: #C28A00;
+
+  /* Light-surface text */
+  --fg-1: #121212;
+  --fg-2: #3F3F3F;
+
+  /* Type */
+  --font-display: "Oswald", Impact, "Arial Narrow", sans-serif;
+  --font-body:    "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:    "Roboto Mono", ui-monospace, Menlo, monospace;
+  --tracking-tech: 0.08em;
+
+  /* Motion and layout */
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.1, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --content-max: 1200px;
+
+  background: var(--forge-black);
+  color: var(--forge-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+.forge *, .forge *::before, .forge *::after { box-sizing: border-box; }
+.forge a { color: inherit; text-decoration: none; }
+.forge img { display: block; max-width: 100%; height: auto; }
+.forge h1, .forge h2, .forge h3, .forge h4, .forge p { margin: 0; }
+.forge section { scroll-margin-top: 64px; }
+.forge :focus-visible { outline: 2px solid var(--forge-yellow); outline-offset: 3px; }
+
+.forge .container { max-width: var(--content-max); margin: 0 auto; padding-inline: 40px; width: 100%; }
+
+/* ---------- shared type helpers ---------- */
+.forge .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--forge-yellow); }
+.forge .rule { height: 2px; width: 56px; background: var(--forge-yellow); }
+.forge .mono { font-family: var(--font-mono); letter-spacing: var(--tracking-tech); text-transform: uppercase; }
+
+/* ---------- buttons (links styled as buttons) ---------- */
+.forge .btn {
+  display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+  font-family: var(--font-body); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; font-size: 13px; line-height: 1;
+  padding: 15px 24px; border: 0; border-radius: 0; cursor: pointer;
+  transition: background var(--dur-1) var(--ease-snap), color var(--dur-1) var(--ease-snap), transform var(--dur-1) var(--ease-snap);
+}
+.forge .btn .arr { transition: transform var(--dur-2) var(--ease-snap); }
+.forge .btn:hover .arr { transform: translateX(4px); }
+.forge .btn-primary { background: var(--forge-yellow); color: var(--forge-black); }
+.forge .btn-primary:hover { background: var(--heat-400); }
+.forge .btn-primary:active { background: var(--heat-600); transform: translateY(1px); }
+.forge .btn-secondary { background: transparent; color: var(--forge-white); border: 1px solid var(--ink-500); }
+.forge .btn-secondary:hover { background: var(--forge-white); color: var(--forge-black); border-color: var(--forge-white); }
+.forge .btn-dark { background: var(--forge-black); color: var(--forge-white); }
+.forge .btn-dark:hover { background: var(--ink-700); }
+.forge .btn-ghost { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forge-yellow); padding: 12px 0; }
+.forge .btn-ghost:hover { color: var(--heat-400); }
+
+/* ---------- nav (preview only — Squarespace supplies its own header) ---------- */
+.forge .nav { position: sticky; top: 0; z-index: 60; background: var(--forge-black); border-bottom: 1px solid var(--ink-700); }
+.forge .nav-inner { display: flex; align-items: center; height: 64px; gap: 28px; }
+.forge .nav-brand { display: flex; align-items: center; gap: 12px; }
+.forge .nav-brand img { width: 30px; height: 30px; object-fit: contain; }
+.forge .nav-brand .wm { font-family: var(--font-display); font-size: 23px; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1; }
+.forge .nav-links { display: flex; gap: 26px; margin-left: 20px; }
+.forge .nav-link { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-100); }
+.forge .nav-link:hover { color: var(--forge-yellow); }
+.forge .nav-right { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+.forge .nav-phone { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--ink-100); }
+.forge .nav-phone:hover { color: var(--forge-yellow); }
+
+/* ---------- hero ---------- */
+.forge .hero { position: relative; background: var(--forge-black); overflow: hidden; }
+.forge .hero::before {
+  content: ""; position: absolute; right: -160px; top: -120px; bottom: -120px; width: 520px;
+  background: var(--forge-yellow); transform: skewX(-18deg); opacity: 0.96;
+}
+.forge .hero::after {
+  content: ""; position: absolute; right: 120px; top: -120px; bottom: -120px; width: 34px;
+  background: var(--heat-300); transform: skewX(-18deg);
+}
+.forge .hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; padding-block: 76px 64px; align-items: center; }
+.forge .hero-copy { min-width: 0; }
+.forge .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.forge .hero-eyebrow .tick { width: 28px; height: 2px; background: var(--forge-yellow); }
+.forge .hero-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(56px, 7.5vw, 120px); line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase; color: var(--forge-white); text-wrap: balance; }
+.forge .hero-title .hot { color: var(--forge-yellow); }
+.forge .hero-sub { font-size: 18px; line-height: 1.6; color: var(--ink-100); max-width: 540px; margin: 26px 0 34px; }
+.forge .hero-sub strong { color: var(--forge-white); }
+.forge .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* product photo panel */
+.forge .render {
+  position: relative; aspect-ratio: 4 / 5; width: 100%; max-width: 460px; margin-left: auto;
+  background:
+    repeating-linear-gradient(-18deg, rgba(245,247,250,0.045) 0 2px, transparent 2px 13px),
+    linear-gradient(150deg, #1f1f1f 0%, #161616 52%, #0d0d0d 100%);
+  border: 1px solid var(--ink-600); display: flex; align-items: center; justify-content: center;
+}
+.forge .render::before { content: ""; position: absolute; left: 0; top: 0; width: 44px; height: 4px; background: var(--forge-yellow); }
+.forge .render img { position: relative; z-index: 2; width: auto; max-width: 92%; max-height: 78%; margin: auto; }
+.forge .render-label { position: absolute; left: 16px; bottom: 14px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-300); }
+.forge .render-spec { position: absolute; right: 16px; top: 16px; text-align: right; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink-200); line-height: 1.7; }
+.forge .render-spec b { color: var(--forge-yellow); font-weight: 400; }
+
+/* hero stat strip */
+.forge .hero-stats { position: relative; z-index: 1; background: var(--forge-black); box-shadow: 0 0 0 100vmax var(--forge-black); clip-path: inset(0 -100vmax 0 -100vmax); display: grid; grid-template-columns: repeat(3, 1fr); border-top: 2px solid var(--forge-yellow); }
+.forge .hero-stats > div { padding: 22px 24px 26px 0; border-right: 1px solid var(--ink-700); }
+.forge .hero-stats > div + div { padding-left: 24px; }
+.forge .hero-stats > div:last-child { border-right: 0; }
+.forge .hero-stats .n { font-family: var(--font-display); font-weight: 500; font-size: 52px; line-height: 1; color: var(--forge-yellow); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.forge .hero-stats .l { font-family: var(--font-mono); font-size: 11px; color: var(--ink-200); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 10px; line-height: 1.5; }
+
+/* ---------- generic section ---------- */
+.forge .section { padding-block: 96px; background: var(--forge-black); }
+.forge .section-light { background: var(--forge-white); color: var(--fg-1); }
+.forge .section-light .section-lead { color: var(--fg-2); }
+.forge .section-light .eyebrow { color: #8A6A00; } /* dark gold: the brand's legal yellow-text on light */
+.forge .section-light .rule { background: var(--forge-black); }
+.forge .section-head { display: flex; flex-direction: column; gap: 18px; margin-bottom: 44px; max-width: 760px; }
+.forge .section-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(38px, 5vw, 68px); line-height: 0.98; text-transform: uppercase; letter-spacing: -0.005em; text-wrap: balance; }
+.forge .section-lead { font-size: 18px; line-height: 1.6; color: var(--ink-100); max-width: 65ch; }
+
+/* ---------- stat band ---------- */
+.forge .statband { display: grid; grid-template-columns: repeat(3, 1fr); }
+.forge .statband .stat { padding: 30px 28px 30px 0; border-right: 1px solid var(--ink-600); }
+.forge .statband .stat + .stat { padding-left: 28px; }
+.forge .statband .stat:last-child { border-right: 0; }
+.forge .statband .n { font-family: var(--font-display); font-weight: 500; font-size: 84px; line-height: 0.95; color: var(--forge-yellow); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.forge .statband .l { font-size: 15px; line-height: 1.55; color: var(--ink-100); margin-top: 14px; max-width: 300px; }
+.forge .statband .src { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-300); margin-top: 12px; }
+
+/* ---------- products ---------- */
+.forge .products { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.forge .product { background: var(--ink-800); color: var(--forge-white); border: 1px solid var(--ink-600); display: flex; flex-direction: column; min-width: 0; }
+.forge .product-top {
+  position: relative; height: 220px; overflow: hidden; border-bottom: 1px solid var(--ink-600);
+  background:
+    repeating-linear-gradient(-18deg, rgba(245,247,250,0.05) 0 2px, transparent 2px 12px),
+    linear-gradient(140deg, #232323, #0e0e0e);
+  display: flex; align-items: center; justify-content: center;
+}
+.forge .product-top .badge { position: absolute; left: 0; top: 0; z-index: 2; background: var(--forge-yellow); color: var(--forge-black); font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 12px; }
+.forge .product-top img { width: auto; max-width: 88%; max-height: 190px; }
+.forge .product-body { padding: 28px 28px 30px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+.forge .product-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forge-yellow); }
+.forge .product-name { font-family: var(--font-display); font-weight: 500; font-size: 56px; line-height: 0.92; text-transform: uppercase; letter-spacing: -0.005em; }
+.forge .product-tag { font-size: 15px; color: var(--ink-100); line-height: 1.6; }
+.forge .product-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 22px; padding-top: 20px; margin-top: auto; border-top: 1px solid var(--ink-600); }
+.forge .product-specs .k { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-200); margin-bottom: 7px; }
+.forge .product-specs .v { font-family: var(--font-display); font-weight: 500; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; }
+.forge .product-cta { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; padding-top: 22px; }
+
+/* ---------- spec sheet ---------- */
+.forge .spec { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start; }
+.forge .spec > * { min-width: 0; }
+.forge .spec .render { max-width: none; aspect-ratio: 3 / 4; margin: 0; }
+.forge .spec-note { margin-top: 24px; font-size: 16px; line-height: 1.6; color: var(--ink-100); border-left: 2px solid var(--forge-yellow); padding-left: 18px; }
+.forge .spec-scroll { overflow-x: auto; }
+.forge .spec-table { width: 100%; border-collapse: collapse; }
+.forge .spec-table caption { text-align: left; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forge-yellow); padding-bottom: 14px; border-bottom: 2px solid var(--forge-yellow); }
+.forge .spec-table tr { border-bottom: 1px solid var(--ink-600); }
+.forge .spec-table th, .forge .spec-table td { padding: 15px 0; vertical-align: baseline; font-weight: 400; }
+.forge .spec-table th { text-align: left; font-size: 15px; color: var(--ink-100); width: 52%; }
+.forge .spec-table td { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.04em; text-align: right; font-variant-numeric: tabular-nums; }
+.forge .spec-table td b { color: var(--forge-yellow); font-weight: 400; }
+
+/* ---------- powered-by strip ---------- */
+.forge .partners { background: var(--ink-800); border-top: 1px solid var(--ink-600); border-bottom: 1px solid var(--ink-600); }
+.forge .partners-inner { display: flex; align-items: center; gap: 40px; padding-block: 28px; }
+.forge .partners .lab { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-200); white-space: nowrap; }
+.forge .partners .marks img { height: 38px; width: auto; }
+.forge .partners .tech { margin-left: auto; font-size: 14px; color: var(--ink-100); max-width: 380px; line-height: 1.5; }
+.forge .partners .tech b { color: var(--forge-white); }
+
+/* ---------- capabilities ---------- */
+.forge .cap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.forge .cap { position: relative; background: var(--ink-800); border: 1px solid var(--ink-600); padding: 30px 30px 34px; display: flex; flex-direction: column; gap: 10px; }
+.forge .cap::before { content: ""; position: absolute; left: 0; top: 0; width: 34px; height: 4px; background: var(--forge-yellow); }
+.forge .cap-h { font-family: var(--font-display); font-weight: 500; font-size: 30px; text-transform: uppercase; line-height: 1.04; margin-top: 4px; color: var(--forge-yellow); }
+.forge .cap-b { font-size: 15px; line-height: 1.65; color: var(--ink-100); }
+
+/* ---------- CTA band ---------- */
+.forge .cta { position: relative; background: var(--forge-yellow); color: var(--forge-black); overflow: hidden; }
+.forge .cta::before { content: ""; position: absolute; left: -120px; top: -80px; bottom: -80px; width: 320px; background: var(--forge-black); transform: skewX(-18deg); opacity: 0.08; }
+.forge .cta-inner { position: relative; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center; padding-block: 64px; }
+.forge .cta h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(40px, 5vw, 72px); line-height: 0.95; text-transform: uppercase; letter-spacing: -0.005em; }
+.forge .cta p { font-size: 16px; line-height: 1.6; margin-top: 16px; max-width: 460px; color: #2a2a2a; }
+.forge .cta-actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.forge .cta-contact { display: flex; flex-direction: column; gap: 6px; font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.04em; overflow-wrap: anywhere; }
+.forge .cta-contact a { color: var(--forge-black); }
+.forge .cta-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- footer (preview only — Squarespace supplies its own footer) ---------- */
+.forge .footer { background: var(--forge-black); color: var(--ink-200); padding-block: 64px 36px; border-top: 4px solid var(--forge-yellow); }
+.forge .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 34px; border-bottom: 1px solid var(--ink-700); }
+.forge .footer-brand img { height: 30px; width: auto; margin-bottom: 16px; }
+.forge .footer-brand p { font-size: 14px; line-height: 1.6; max-width: 320px; }
+.forge .footer-col h4 { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--forge-white); margin-bottom: 14px; }
+.forge .footer-col a { display: block; font-size: 14px; padding-block: 5px; overflow-wrap: anywhere; }
+.forge .footer-col a:hover { color: var(--forge-yellow); }
+.forge .footer-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 22px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-300); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1080px) {
+  .forge .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .forge .hero .render { max-width: 380px; margin: 0; }
+  /* single column: the slash would cross the text, so drop it (slash safe-zone rule) */
+  .forge .hero::before, .forge .hero::after { display: none; }
+  .forge .spec { grid-template-columns: 1fr; gap: 36px; }
+  .forge .cta-inner { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 820px) {
+  .forge .container { padding-inline: 20px; }
+  .forge .nav-links, .forge .nav-phone { display: none; }
+  .forge .products, .forge .cap-grid { grid-template-columns: 1fr; }
+  .forge .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .forge .partners-inner { flex-wrap: wrap; gap: 20px; }
+  .forge .partners .tech { margin-left: 0; }
+  .forge .section { padding-block: 64px; }
+}
+@media (max-width: 560px) {
+  .forge .nav .btn { display: none; }
+  .forge .hero-stats, .forge .statband { grid-template-columns: 1fr; }
+  .forge .hero-stats > div, .forge .hero-stats > div + div,
+  .forge .statband .stat, .forge .statband .stat + .stat { border-right: 0; border-bottom: 1px solid var(--ink-600); padding: 22px 0; }
+  .forge .statband .n { font-size: 68px; }
+  .forge .product-name { font-size: 46px; }
+  .forge .footer-top { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .forge *, .forge *::before, .forge *::after { transition: none !important; }
+}
