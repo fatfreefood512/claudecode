@@ -11,3 +11,21 @@
 @media (max-width: 767px){.fl .wrap{padding:0 16px}.fl .frame{padding:48px 16px}.fl .g,.fl .gb{grid-template-columns:repeat(4,minmax(0,1fr))}.fl .g > *,.fl .gb > *,.fl .g > [class],.fl .gb > [class]{grid-column:1 / -1}.fl .g > .p-1,.fl .gb > .p-1{grid-column:span 1}.fl .g > .p-2,.fl .gb > .p-2{grid-column:span 2}.fl .g > .p-3,.fl .gb > .p-3{grid-column:span 3}.fl .gb.gb8{grid-template-columns:repeat(2,minmax(0,1fr))}.fl .hide-sm{display:none !important}.fl .p-only{display:block !important}.fl .h1{font-size:40px}.fl .statement{font-size:26px}.fl .h2{font-size:30px}.fl .big-fig{font-size:120px !important}.fl .gb > *{padding:16px}.fl .sm-first{order:-1}.fl .bom-row{grid-template-columns:minmax(0,1fr) auto}.fl .bom-row .adv{display:none}.fl .map-pin .pin-lbl{display:none}.fl .map-pin{width:8px !important;height:8px !important;margin:-4px 0 0 -4px !important;border-width:1.5px !important}
 }@media (prefers-reduced-motion: reduce){.fl .hero-in,.fl .hero-in-2,.fl .hero-in-3,.fl .stamp,.fl .diag-reveal,.fl .plot *,.fl .tl *{animation:none !important;stroke-dashoffset:0 !important;opacity:1 !important;transform:none !important}.fl .draw-link::after,.fl .cut-btn,.fl .acc-sign{transition:none}.fl .marquee-track{animation:none}
 }
+
+/* Supply chain: map stays in view while the parts list scrolls past it */
+.fl .supply-split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:start}
+.fl .supply-map{position:sticky;top:96px;border:1.5px solid #121212;background:#F5F7FA;padding:24px}
+.fl .supply-list > *{grid-column:1 / -1}
+.fl .supply-list .bom-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;width:100%;margin:0;border:0;border-radius:0;background:#F5F7FA;color:#121212;font:inherit;text-align:left;cursor:pointer}
+.fl .supply-list .bom-head{cursor:default;color:#121212}
+.fl .bom-name{display:flex;flex-direction:column;gap:2px;font-weight:600}
+.fl .bom-name .adv{display:block;font-weight:400;font-size:15px;color:#3F3F3F}
+.fl .bom-rg{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.04em;white-space:nowrap}
+.fl .supply-list .bom-row[aria-pressed="true"],.fl .supply-list .bom-row:hover{background:#E3E5E9}
+.fl .supply-list .bom-row:focus-visible{outline:2px solid #121212;outline-offset:-4px}
+@media (max-width: 767px){
+  .fl .supply-split{grid-template-columns:minmax(0,1fr);gap:16px}
+  .fl .supply-map{top:72px;z-index:5;padding:12px}
+  .fl .supply-list .bom-row{grid-template-columns:minmax(0,1fr) auto}
+  .fl .bom-name .adv{display:none}
+}

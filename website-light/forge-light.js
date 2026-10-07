@@ -37,14 +37,16 @@
         if (lbl) lbl.style.color = dim ? '#9EA3AB' : '#121212';
       });
     }
-    root.querySelectorAll('[data-bom]').forEach(function (row) {
-      row.addEventListener('mouseenter', function () {
-        row.style.background = '#E3E5E9';
-        paint(row.getAttribute('data-regions').split(' '));
-      });
-      row.addEventListener('mouseleave', function () {
-        row.style.background = '#F5F7FA';
-        paint(null);
+    /* Hover previews a row's regions; a click or tap keeps them lit until clicked again */
+    var rows = root.querySelectorAll('[data-bom]'), pinned = null;
+    function regionsOf(row) { return row ? row.getAttribute('data-regions').split(' ') : null; }
+    rows.forEach(function (row) {
+      row.addEventListener('mouseenter', function () { paint(regionsOf(row)); });
+      row.addEventListener('mouseleave', function () { paint(regionsOf(pinned)); });
+      row.addEventListener('click', function () {
+        pinned = pinned === row ? null : row;
+        rows.forEach(function (r) { r.setAttribute('aria-pressed', r === pinned ? 'true' : 'false'); });
+        paint(regionsOf(pinned));
       });
     });
 
