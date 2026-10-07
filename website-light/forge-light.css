@@ -59,3 +59,32 @@
   .fl .pc-img{aspect-ratio:16 / 10}
   .fl .pc-body{padding:16px}
 }
+
+/* Hero: directional shade, centred message, proof strip */
+.fl .hero{position:relative;min-height:780px;background:#121212;color:#F5F7FA;overflow:hidden}
+.fl .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,18,18,0.9) 0%,rgba(18,18,18,0.72) 40%,rgba(18,18,18,0.18) 75%,rgba(18,18,18,0.05) 100%),linear-gradient(0deg,rgba(18,18,18,0.85) 0%,rgba(18,18,18,0) 32%)}
+.fl .hero-frame{min-height:780px;display:flex;flex-direction:column;padding-top:72px;padding-bottom:0}
+.fl .hero-main{flex:1;align-items:center;padding-block:48px}
+.fl .hero-eyebrow{color:#E6A700;margin-bottom:16px}
+.fl .hero-ctas{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.fl .hero-ghost{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border:1.5px solid rgba(245,247,250,0.6);color:#F5F7FA;font-size:16px;font-weight:600;text-decoration:none;transition:background-color 120ms cubic-bezier(0.2,0.9,0.1,1),color 120ms cubic-bezier(0.2,0.9,0.1,1)}
+.fl .hero-ghost:hover{background:#F5F7FA;color:#121212}
+.fl .hero-proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border-top:1.5px solid rgba(245,247,250,0.35)}
+.fl .hero-proof > div{padding:20px 20px 28px 0}
+.fl .hero-proof > div + div{padding-left:20px;border-left:1px solid rgba(245,247,250,0.25)}
+.fl .hero-proof dt{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:28px;line-height:1.1;letter-spacing:0.01em;color:#F5F7FA}
+.fl .hero-proof dd{margin:6px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;color:#C7C7C7}
+@media (max-width: 1023px){
+  .fl .hero-proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fl .hero-proof > div:nth-child(3){padding-left:0;border-left:0}
+  .fl .hero-proof > div:nth-child(n+3){border-top:1px solid rgba(245,247,250,0.25)}
+}
+@media (max-width: 767px){
+  .fl .hero,.fl .hero-frame{min-height:0}
+  .fl .hero-frame{padding-top:48px}
+  .fl .hero-main{padding-block:24px 40px}
+  .fl .hero-shade{background:rgba(18,18,18,0.72)}
+  .fl .hero-proof dt{font-size:22px}
+  .fl .hero-proof > div{padding:14px 12px 18px 0}
+  .fl .hero-proof > div + div{padding-left:12px}
+}

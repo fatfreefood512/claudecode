@@ -34,18 +34,22 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section id="top" style="position: relative; height: 780px; background: #121212; color: #F5F7FA; overflow: hidden;">
+<section id="top" class="hero">
   <img src="assets/line-hero.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block;">
-  <div style="position: absolute; inset: 0; background: rgba(18,18,18,0.55);"></div>
-  <div class="wrap" style="position: relative; height: 100%;">
-    <div class="frame dark" style="height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 48px; border-color: rgba(245,247,250,0.25);">
-      <div class="g" style="align-items: end;">
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="wrap" style="position: relative;">
+    <div class="frame dark hero-frame" style="border-color: rgba(245,247,250,0.25);">
+      <div class="g hero-main">
         <div class="d-1-8">
+          <div class="lbl hero-in hero-eyebrow">Lab-to-fab cell manufacturing</div>
           <h1 class="h1 hero-in">Your chemistry is your business. Making cells is ours.</h1>
           <p class="hero-in-2" style="margin: 24px 0 32px; max-width: 520px; font-size: 20px; line-height: 1.5; color: #E3E5E9;">We take a new cell chemistry from a working lab result to a cell you can ship, on pouch platforms that are already qualified.</p>
-          <a class="cut-btn btn-y hero-in-3" href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 40px 0 24px; background: #E6A700; color: #121212; font-size: 16px; font-weight: 600; text-decoration: none;">Start a program</a>
+          <div class="hero-in-3 hero-ctas">
+            <a class="cut-btn btn-y" href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 40px 0 24px; background: #E6A700; color: #121212; font-size: 16px; font-weight: 600; text-decoration: none;">Start a program</a>
+            <a class="hero-ghost" href="#line">See the line <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="d-9-4 d-only stamp" style="border: 1.5px solid #F5F7FA; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">
+        <div class="d-9-4 d-only stamp" style="align-self: end; background: rgba(18,18,18,0.72); border: 1.5px solid #F5F7FA; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase;">
           <div style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1.5px solid #F5F7FA;">
             <div style="padding: 8px 12px; border-right: 1.5px solid #F5F7FA;">Forge Energy Solutions</div>
             <div style="padding: 8px 12px;">Redwood City, CA</div>
@@ -58,6 +62,12 @@
           </div>
         </div>
       </div>
+      <dl class="hero-proof hero-in-3">
+        <div><dt>3</dt><dd>Qualified pouch platforms</dd></div>
+        <div><dt>8-step</dt><dd>Production line</dd></div>
+        <div><dt>UN38.3 · TÜV · UL</dt><dd>Certification partners</dd></div>
+        <div><dt>MIL-PRF-32565C</dt><dd>Systems</dd></div>
+      </dl>
     </div>
   </div>
 </section>
