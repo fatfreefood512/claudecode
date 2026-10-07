@@ -1,6 +1,6 @@
 /* Forge Energy Solutions — website (light): interactions.
    Plain JavaScript, no libraries. Works on any page that contains the .fl markup.
-   On Squarespace, paste it inside <script>…</script> in Code Injection → Footer. */
+   On Squarespace, paste it into Code Injection → Footer, wrapped in a script tag. */
 (function () {
   function init() {
     var root = document.querySelector('.fl');
