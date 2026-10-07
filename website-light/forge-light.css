@@ -11,3 +11,80 @@
 @media (max-width: 767px){.fl .wrap{padding:0 16px}.fl .frame{padding:48px 16px}.fl .g,.fl .gb{grid-template-columns:repeat(4,minmax(0,1fr))}.fl .g > *,.fl .gb > *,.fl .g > [class],.fl .gb > [class]{grid-column:1 / -1}.fl .g > .p-1,.fl .gb > .p-1{grid-column:span 1}.fl .g > .p-2,.fl .gb > .p-2{grid-column:span 2}.fl .g > .p-3,.fl .gb > .p-3{grid-column:span 3}.fl .gb.gb8{grid-template-columns:repeat(2,minmax(0,1fr))}.fl .hide-sm{display:none !important}.fl .p-only{display:block !important}.fl .h1{font-size:40px}.fl .statement{font-size:26px}.fl .h2{font-size:30px}.fl .big-fig{font-size:120px !important}.fl .gb > *{padding:16px}.fl .sm-first{order:-1}.fl .bom-row{grid-template-columns:minmax(0,1fr) auto}.fl .bom-row .adv{display:none}.fl .map-pin .pin-lbl{display:none}.fl .map-pin{width:8px !important;height:8px !important;margin:-4px 0 0 -4px !important;border-width:1.5px !important}
 }@media (prefers-reduced-motion: reduce){.fl .hero-in,.fl .hero-in-2,.fl .hero-in-3,.fl .stamp,.fl .diag-reveal,.fl .plot *,.fl .tl *{animation:none !important;stroke-dashoffset:0 !important;opacity:1 !important;transform:none !important}.fl .draw-link::after,.fl .cut-btn,.fl .acc-sign{transition:none}.fl .marquee-track{animation:none}
 }
+
+/* Supply chain: map stays in view while the parts list scrolls past it */
+.fl .supply-split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:start}
+.fl .supply-map{position:sticky;top:96px;border:1.5px solid #121212;background:#F5F7FA;padding:24px}
+.fl .supply-list > *{grid-column:1 / -1}
+.fl .supply-list .bom-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;width:100%;margin:0;border:0;border-radius:0;background:#F5F7FA;color:#121212;font:inherit;text-align:left;cursor:pointer}
+.fl .supply-list .bom-head{cursor:default;color:#121212}
+.fl .bom-name{display:flex;flex-direction:column;gap:2px;font-weight:600}
+.fl .bom-name .adv{display:block;font-weight:400;font-size:15px;color:#3F3F3F}
+.fl .bom-rg{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.04em;white-space:nowrap}
+.fl .supply-list .bom-row[aria-pressed="true"],.fl .supply-list .bom-row:hover{background:#E3E5E9}
+.fl .supply-list .bom-row:focus-visible{outline:2px solid #121212;outline-offset:-4px}
+@media (max-width: 767px){
+  .fl .supply-split{grid-template-columns:minmax(0,1fr);gap:16px}
+  .fl .supply-map{top:72px;z-index:5;padding:12px}
+  .fl .supply-list .bom-row{grid-template-columns:minmax(0,1fr) auto}
+  .fl .bom-name .adv{display:none}
+}
+
+/* Products: three cards, everything visible at once */
+.fl .pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:1.5px solid #F5F7FA;padding-top:32px}
+.fl .pc{display:flex;flex-direction:column;border:1px solid #3D3D3D;background:#121212;min-width:0}
+.fl .pc-img{position:relative;background:#2A2A2A;aspect-ratio:16 / 10;min-height:0;overflow:hidden}
+.fl .pc-img img{position:absolute;inset:11% 14%;width:72%;height:78%;object-fit:contain;display:block}
+.fl .pc-body{display:flex;flex-direction:column;flex:1;padding:24px}
+.fl .pc-kind{color:#9EA3AB;font-size:15px}
+.fl .pc-name{margin:6px 0 0;font-size:32px;font-weight:600;letter-spacing:-0.01em;line-height:1.1}
+.fl .pc-market{margin-top:6px;font-size:15px;color:#C7C7C7;min-height:2.9em}
+.fl .pc-desc{margin:16px 0 20px;font-size:16px;line-height:1.55;color:#C7C7C7}
+.fl .pc-specs{margin:auto 0 0;padding:0}
+.fl .pc-spec{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid #3D3D3D}
+.fl .pc-spec dt{font-size:14px;color:#C7C7C7}
+.fl .pc-spec dd{margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:19px;text-align:right}
+.fl .pc-cta{align-self:flex-start;margin-top:20px;min-height:44px;display:inline-flex;align-items:center;gap:8px;color:#F5F7FA;font-size:16px;font-weight:500}
+.fl .pc-cta::after{background:#E6A700}
+.fl .pc-cta:hover{color:#F5F7FA}
+.fl .pc-cta span{color:#E6A700}
+@media (max-width: 1023px){
+  .fl .pcards{grid-template-columns:minmax(0,1fr)}
+  .fl .pc{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+  .fl .pc-img{aspect-ratio:auto}
+  .fl .pc-market{min-height:0}
+}
+@media (max-width: 767px){
+  .fl .pc{display:flex}
+  .fl .pc-img{aspect-ratio:16 / 10}
+  .fl .pc-body{padding:16px}
+}
+
+/* Hero: directional shade, centred message, proof strip */
+.fl .hero{position:relative;min-height:780px;background:#121212;color:#F5F7FA;overflow:hidden}
+.fl .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,18,18,0.9) 0%,rgba(18,18,18,0.72) 40%,rgba(18,18,18,0.18) 75%,rgba(18,18,18,0.05) 100%),linear-gradient(0deg,rgba(18,18,18,0.85) 0%,rgba(18,18,18,0) 32%)}
+.fl .hero-frame{min-height:780px;display:flex;flex-direction:column;padding-top:72px;padding-bottom:0}
+.fl .hero-main{flex:1;align-items:center;padding-block:48px}
+.fl .hero-eyebrow{color:#E6A700;margin-bottom:16px}
+.fl .hero-ctas{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.fl .hero-ghost{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border:1.5px solid rgba(245,247,250,0.6);color:#F5F7FA;font-size:16px;font-weight:600;text-decoration:none;transition:background-color 120ms cubic-bezier(0.2,0.9,0.1,1),color 120ms cubic-bezier(0.2,0.9,0.1,1)}
+.fl .hero-ghost:hover{background:#F5F7FA;color:#121212}
+.fl .hero-proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border-top:1.5px solid rgba(245,247,250,0.35)}
+.fl .hero-proof > div{padding:20px 20px 28px 0}
+.fl .hero-proof > div + div{padding-left:20px;border-left:1px solid rgba(245,247,250,0.25)}
+.fl .hero-proof dt{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:28px;line-height:1.1;letter-spacing:0.01em;color:#F5F7FA}
+.fl .hero-proof dd{margin:6px 0 0;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.06em;text-transform:uppercase;color:#C7C7C7}
+@media (max-width: 1023px){
+  .fl .hero-proof{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fl .hero-proof > div:nth-child(3){padding-left:0;border-left:0}
+  .fl .hero-proof > div:nth-child(n+3){border-top:1px solid rgba(245,247,250,0.25)}
+}
+@media (max-width: 767px){
+  .fl .hero,.fl .hero-frame{min-height:0}
+  .fl .hero-frame{padding-top:48px}
+  .fl .hero-main{padding-block:24px 40px}
+  .fl .hero-shade{background:rgba(18,18,18,0.72)}
+  .fl .hero-proof dt{font-size:22px}
+  .fl .hero-proof > div{padding:14px 12px 18px 0}
+  .fl .hero-proof > div + div{padding-left:12px}
+}

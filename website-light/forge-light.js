@@ -1,6 +1,6 @@
 /* Forge Energy Solutions — website (light): interactions.
    Plain JavaScript, no libraries. Works on any page that contains the .fl markup.
-   On Squarespace, paste it inside <script>…</script> in Code Injection → Footer. */
+   On Squarespace, paste it into Code Injection → Footer, wrapped in a script tag. */
 (function () {
   function init() {
     var root = document.querySelector('.fl');
@@ -37,31 +37,16 @@
         if (lbl) lbl.style.color = dim ? '#9EA3AB' : '#121212';
       });
     }
-    root.querySelectorAll('[data-bom]').forEach(function (row) {
-      row.addEventListener('mouseenter', function () {
-        row.style.background = '#E3E5E9';
-        paint(row.getAttribute('data-regions').split(' '));
-      });
-      row.addEventListener('mouseleave', function () {
-        row.style.background = '#F5F7FA';
-        paint(null);
-      });
-    });
-
-    /* Products accordion: one panel open at a time */
-    var buttons = root.querySelectorAll('[data-acc]');
-    function setOpen(btn, open) {
-      var panel = document.getElementById(btn.getAttribute('aria-controls'));
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (panel) panel.hidden = !open;
-      var sign = btn.querySelector('[data-acc-sign]');
-      if (sign) sign.style.transform = 'rotate(' + (open ? 45 : 0) + 'deg)';
-    }
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var wasOpen = btn.getAttribute('aria-expanded') === 'true';
-        buttons.forEach(function (b) { setOpen(b, false); });
-        if (!wasOpen) setOpen(btn, true);
+    /* Hover previews a row's regions; a click or tap keeps them lit until clicked again */
+    var rows = root.querySelectorAll('[data-bom]'), pinned = null;
+    function regionsOf(row) { return row ? row.getAttribute('data-regions').split(' ') : null; }
+    rows.forEach(function (row) {
+      row.addEventListener('mouseenter', function () { paint(regionsOf(row)); });
+      row.addEventListener('mouseleave', function () { paint(regionsOf(pinned)); });
+      row.addEventListener('click', function () {
+        pinned = pinned === row ? null : row;
+        rows.forEach(function (r) { r.setAttribute('aria-pressed', r === pinned ? 'true' : 'false'); });
+        paint(regionsOf(pinned));
       });
     });
 
