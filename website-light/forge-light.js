@@ -50,23 +50,6 @@
       });
     });
 
-    /* Products accordion: one panel open at a time */
-    var buttons = root.querySelectorAll('[data-acc]');
-    function setOpen(btn, open) {
-      var panel = document.getElementById(btn.getAttribute('aria-controls'));
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      if (panel) panel.hidden = !open;
-      var sign = btn.querySelector('[data-acc-sign]');
-      if (sign) sign.style.transform = 'rotate(' + (open ? 45 : 0) + 'deg)';
-    }
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var wasOpen = btn.getAttribute('aria-expanded') === 'true';
-        buttons.forEach(function (b) { setOpen(b, false); });
-        if (!wasOpen) setOpen(btn, true);
-      });
-    });
-
     /* Draw the timeline and charts as they scroll into view */
     if (typeof IntersectionObserver === 'undefined') return;
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

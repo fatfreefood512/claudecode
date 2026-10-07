@@ -29,3 +29,33 @@
   .fl .supply-list .bom-row{grid-template-columns:minmax(0,1fr) auto}
   .fl .bom-name .adv{display:none}
 }
+
+/* Products: three cards, everything visible at once */
+.fl .pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;border-top:1.5px solid #F5F7FA;padding-top:32px}
+.fl .pc{display:flex;flex-direction:column;border:1px solid #3D3D3D;background:#121212;min-width:0}
+.fl .pc-img{position:relative;background:#2A2A2A;aspect-ratio:16 / 10;min-height:0;overflow:hidden}
+.fl .pc-img img{position:absolute;inset:11% 14%;width:72%;height:78%;object-fit:contain;display:block}
+.fl .pc-body{display:flex;flex-direction:column;flex:1;padding:24px}
+.fl .pc-kind{color:#9EA3AB;font-size:15px}
+.fl .pc-name{margin:6px 0 0;font-size:32px;font-weight:600;letter-spacing:-0.01em;line-height:1.1}
+.fl .pc-market{margin-top:6px;font-size:15px;color:#C7C7C7;min-height:2.9em}
+.fl .pc-desc{margin:16px 0 20px;font-size:16px;line-height:1.55;color:#C7C7C7}
+.fl .pc-specs{margin:auto 0 0;padding:0}
+.fl .pc-spec{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-top:1px solid #3D3D3D}
+.fl .pc-spec dt{font-size:14px;color:#C7C7C7}
+.fl .pc-spec dd{margin:0;font-family:'Barlow Condensed',sans-serif;font-weight:500;font-size:19px;text-align:right}
+.fl .pc-cta{align-self:flex-start;margin-top:20px;min-height:44px;display:inline-flex;align-items:center;gap:8px;color:#F5F7FA;font-size:16px;font-weight:500}
+.fl .pc-cta::after{background:#E6A700}
+.fl .pc-cta:hover{color:#F5F7FA}
+.fl .pc-cta span{color:#E6A700}
+@media (max-width: 1023px){
+  .fl .pcards{grid-template-columns:minmax(0,1fr)}
+  .fl .pc{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+  .fl .pc-img{aspect-ratio:auto}
+  .fl .pc-market{min-height:0}
+}
+@media (max-width: 767px){
+  .fl .pc{display:flex}
+  .fl .pc-img{aspect-ratio:16 / 10}
+  .fl .pc-body{padding:16px}
+}
