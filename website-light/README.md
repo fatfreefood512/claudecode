@@ -22,6 +22,7 @@ Converted from the "Forge Website — Light" design canvas (homepage artboard). 
 ## Content to-do
 
 - **Rewrite the line caption.** "8 steps · one line · every development batch" under the production-line table (section "One line, mixing to formation") is placeholder copy.
+- **Foundry messaging.** Add a line about the foundry model later (for example in the hero label or the services section). "Lab-to-fab" stays for now.
 - **One photo per line step.** The line section shows a single photo today (coating). Get a still for each of the 8 steps:
 
 | Step | What we have now | Status |
