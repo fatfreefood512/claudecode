@@ -9,6 +9,15 @@ Converted from the "Forge Website — Light" design canvas (homepage artboard). 
 | `forge-light.js` | The interactions: crosshair readouts, supply-map highlight, product accordion, scroll-in drawings. Plain JavaScript, no libraries. |
 | `assets/` | Images, resized for the web. |
 
+## Hosting (Cloudflare Pages or Netlify)
+
+The site deploys straight from GitHub: every merge to `main` updates it. Only the `website-light/` folder is published.
+
+- **Netlify** reads `netlify.toml` at the repo root (publish `website-light`, no build).
+- **Cloudflare Pages** settings: production branch `main`, framework preset *None*, build command empty, build output directory `website-light`.
+- **Search engines are blocked** by `website-light/_headers` (`X-Robots-Tag: noindex`). Delete that line when the site launches.
+- **Do not put notes in `website-light/`.** Everything in that folder is public. This file lives in `docs/` for that reason.
+
 ## Putting it on Squarespace (7.1)
 
 1. **Plan check.** Custom HTML Code Blocks and Code Injection need a paid plan above the entry tier. The interactions need Code Injection.

@@ -1,0 +1,4 @@
+# Netlify: publish the light website as-is (plain HTML, no build step).
+[build]
+  publish = "website-light"
+  command = ""
